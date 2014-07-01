@@ -38,6 +38,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		17B5C10B9A673C0FAC2E9EE4 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = file.md; path = README.md; sourceTree = "<group>"; };
 		17B5C1E818EF23792FD11828 /* SnoozeLocalNotificationCenterSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SnoozeLocalNotificationCenterSpec.m; sourceTree = "<group>"; };
 		17B5CC27203B43E979AE7958 /* SnoozeLocalNotificationSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SnoozeLocalNotificationSpec.m; sourceTree = "<group>"; };
 		6003F58A195388D20070C39A /* SnoozeLocalNotification.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SnoozeLocalNotification.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -60,7 +61,6 @@
 		6003F5B7195388D20070C39A /* Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Tests-Info.plist"; sourceTree = "<group>"; };
 		6003F5B9195388D20070C39A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		606FC2411953D9B200FFA9A0 /* Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tests-Prefix.pch"; sourceTree = "<group>"; };
-		8BB67B55BD2B4A448B47C1BA /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		99DB2E25289148B481C49F99 /* Pods-SnoozeLocalNotification.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SnoozeLocalNotification.xcconfig"; path = "Pods/Pods-SnoozeLocalNotification.xcconfig"; sourceTree = "<group>"; };
 		9B4CB856A794477C81E4A6D1 /* Pods-Tests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tests.xcconfig"; path = "Pods/Pods-Tests.xcconfig"; sourceTree = "<group>"; };
 		B0C51EC9D9444152B249062B /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
@@ -105,6 +105,7 @@
 				6003F58B195388D20070C39A /* Products */,
 				99DB2E25289148B481C49F99 /* Pods-SnoozeLocalNotification.xcconfig */,
 				9B4CB856A794477C81E4A6D1 /* Pods-Tests.xcconfig */,
+				17B5C10B9A673C0FAC2E9EE4 /* README.md */,
 			);
 			sourceTree = "<group>";
 		};
@@ -180,7 +181,6 @@
 			isa = PBXGroup;
 			children = (
 				DF73F97AFF734C088FAFD014 /* SnoozeLocalNotification.podspec */,
-				8BB67B55BD2B4A448B47C1BA /* README.md */,
 				B0C51EC9D9444152B249062B /* LICENSE */,
 			);
 			name = "Podspec Metadata";
