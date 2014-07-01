@@ -1,0 +1,24 @@
+PODS:
+  - FBSnapshotTestCase (1.1)
+  - Kiwi/ARC (2.2.4)
+  - Kiwi/NonARC (2.2.4)
+  - Kiwi/XCTest (2.2.4):
+    - Kiwi/ARC
+    - Kiwi/NonARC
+  - SnoozeLocalNotification (0.1.0)
+
+DEPENDENCIES:
+  - FBSnapshotTestCase
+  - Kiwi/XCTest
+  - SnoozeLocalNotification (from `../`)
+
+EXTERNAL SOURCES:
+  SnoozeLocalNotification:
+    :path: ../
+
+SPEC CHECKSUMS:
+  FBSnapshotTestCase: 9053afee1d66b4c7c313fcb0ae582a5e47bea9d0
+  Kiwi: c73667f2b84cbf36f1a3830267c5a4ae8dcbd8ba
+  SnoozeLocalNotification: 3f2082c23b8f274c8141139e7701f3785f40e6cb
+
+COCOAPODS: 0.33.1
