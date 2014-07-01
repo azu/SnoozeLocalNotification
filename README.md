@@ -29,6 +29,27 @@ it, simply add the following line to your Podfile:
 }
 ```
 
+## API
+
+```objc
+@interface SnoozeLocalNotificationCenter : NSObject
++ (instancetype)center;
+// register notification and snooze
+- (void)schedule:(UILocalNotification *) snoozeLocalNotification snoozeMinutes:(NSArray *) snoozeMinutes;
+
+// cancel all snooze notifications
+- (void)cancelAllSnooze;
+// cancel unnecessary notifications.
+/* e.g) notificationA -> snoozeX -> snoozeY
+ * Notify notificationA, then user launch app.
+ * snoozeX and snoozeY are unnecessary notifications.
+ */
+- (void)cancelUnnecessarySnooze;
+
+- (void)cancelSnoozeForNotification:(UILocalNotification *) aNotification;
+@end
+```
+
 ## License
 
 SnoozeLocalNotification is available under the MIT license. See the LICENSE file for more info.
