@@ -25,7 +25,7 @@ it, simply add the following line to your Podfile:
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *) application {
-    [[SnoozeLocalNotificationCenter center] cancelAllSnooze];
+    [[SnoozeLocalNotificationCenter center] cancelUnnecessarySnooze];
 }
 ```
 

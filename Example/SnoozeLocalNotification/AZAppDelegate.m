@@ -12,7 +12,8 @@
 @implementation AZAppDelegate
 
 - (BOOL)application:(UIApplication *) application didFinishLaunchingWithOptions:(NSDictionary *) launchOptions {
-    // Override point for customization after application launch.
+    UILocalNotification *localNotif = [launchOptions objectForKey:UIApplicationLaunchOptionsRemoteNotificationKey];
+    [[SnoozeLocalNotificationCenter center] cancelSnoozeForNotification:localNotif];
     return YES;
 }
 
@@ -27,7 +28,7 @@
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *) application {
-    [[SnoozeLocalNotificationCenter center] cancelAllSnooze];
+    [[SnoozeLocalNotificationCenter center] cancelUnnecessarySnooze];
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *) application {
