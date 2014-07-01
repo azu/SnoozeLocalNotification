@@ -65,6 +65,9 @@ static SnoozeLocalNotificationCenter *_sharedManager = nil;
 }
 
 - (void)cancelSnoozeForNotification:(UILocalNotification *) aNotification {
+    if (aNotification == nil) {
+        return;
+    }
     NSArray *scheduledLocalNotifications = [[UIApplication sharedApplication] scheduledLocalNotifications];
     [scheduledLocalNotifications enumerateObjectsUsingBlock:^(UILocalNotification *notification, NSUInteger idx, BOOL *stop) {
         if ([notification.userInfo[SNOOZE_NOTIFICATION_KEY] isEqualToNumber:aNotification.userInfo[SNOOZE_NOTIFICATION_KEY]]) {

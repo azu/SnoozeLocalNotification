@@ -72,6 +72,11 @@ SPEC_BEGIN(SnoozeLocalNotificationCenterSpec)
         });
     });
     describe(@"-cancelSnoozeForNotification:", ^{
+        context(@"When arguments is nil", ^{
+            it(@"should non error", ^{
+                [[SnoozeLocalNotificationCenter center] cancelSnoozeForNotification:nil];
+            });
+        });
         context(@"When has two groups snooze notifications", ^{
             NSArray *snoozeMinutes = @[@10, @30, @60];
             __block UILocalNotification *localNotification;

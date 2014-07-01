@@ -38,7 +38,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		17B5C10B9A673C0FAC2E9EE4 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = file.md; path = README.md; sourceTree = "<group>"; };
 		17B5C1E818EF23792FD11828 /* SnoozeLocalNotificationCenterSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SnoozeLocalNotificationCenterSpec.m; sourceTree = "<group>"; };
 		17B5CC27203B43E979AE7958 /* SnoozeLocalNotificationSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SnoozeLocalNotificationSpec.m; sourceTree = "<group>"; };
 		6003F58A195388D20070C39A /* SnoozeLocalNotification.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SnoozeLocalNotification.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -105,7 +104,6 @@
 				6003F58B195388D20070C39A /* Products */,
 				99DB2E25289148B481C49F99 /* Pods-SnoozeLocalNotification.xcconfig */,
 				9B4CB856A794477C81E4A6D1 /* Pods-Tests.xcconfig */,
-				17B5C10B9A673C0FAC2E9EE4 /* README.md */,
 			);
 			sourceTree = "<group>";
 		};
