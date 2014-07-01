@@ -31,12 +31,12 @@ SPEC_BEGIN(SnoozeLocalNotificationCenterSpec)
         NSArray *snoozeMinutes = @[@10, @30, @60];
         beforeEach(^{
             localNotification = [[UILocalNotification alloc] init];
-            localNotification.fireDate = [NSDate date];
+            localNotification.fireDate = [[NSDate date] dateByAddingTimeInterval:1000];
             localNotification.alertBody = @"message";
         });
-        it(@"should shcedule notification * snoozeMinutes.count", ^{
+        it(@"should shcedule notification * snoozeMinutes.count + 1", ^{
             [[SnoozeLocalNotificationCenter center] schedule:localNotification snoozeMinutes:snoozeMinutes];
-            [[[SnoozeHelper scheduled] should] haveCountOf:snoozeMinutes.count];
+            [[[SnoozeHelper scheduled] should] haveCountOf:(snoozeMinutes.count + 1)];
         });
         it(@"shedule notification has UserInfo", ^{
             [[SnoozeLocalNotificationCenter center] schedule:localNotification snoozeMinutes:snoozeMinutes];
@@ -61,13 +61,34 @@ SPEC_BEGIN(SnoozeLocalNotificationCenterSpec)
             NSArray *snoozeMinutes = @[@10, @30, @60];
             beforeEach(^{
                 localNotification = [[UILocalNotification alloc] init];
-                localNotification.fireDate = [NSDate date];
+                localNotification.fireDate = [[NSDate date] dateByAddingTimeInterval:1000];
                 localNotification.alertBody = @"message";
                 [[SnoozeLocalNotificationCenter center] schedule:localNotification snoozeMinutes:snoozeMinutes];
             });
             it(@"should cancel notification", ^{
                 [[SnoozeLocalNotificationCenter center] cancelAllSnooze];
                 [[[SnoozeHelper scheduled] should] haveCountOf:0];
+            });
+        });
+    });
+    describe(@"-cancelSnoozeForNotification:", ^{
+        context(@"When has two groups snooze notifications", ^{
+            NSArray *snoozeMinutes = @[@10, @30, @60];
+            __block UILocalNotification *localNotification;
+            beforeEach(^{
+                localNotification = [[UILocalNotification alloc] init];
+                localNotification.fireDate = [[NSDate date] dateByAddingTimeInterval:1000];
+                localNotification.alertBody = @"message";
+                [[SnoozeLocalNotificationCenter center] schedule:localNotification snoozeMinutes:snoozeMinutes];
+
+                UILocalNotification *otherNotification = [[UILocalNotification alloc] init];
+                otherNotification.fireDate = [[NSDate date] dateByAddingTimeInterval:5000];
+                localNotification.alertBody = @"message2";
+                [[SnoozeLocalNotificationCenter center] schedule:otherNotification snoozeMinutes:snoozeMinutes];
+            });
+            it(@"should cancel notification", ^{
+                [[SnoozeLocalNotificationCenter center] cancelSnoozeForNotification:localNotification];
+                [[[SnoozeHelper scheduled] should] haveCountOf:snoozeMinutes.count + 1];
             });
         });
     });

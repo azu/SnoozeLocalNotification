@@ -3,6 +3,7 @@
 //
 
 
+#import <Kiwi/KWValue.h>
 #import "SnoozeLocalNotificationCenter.h"
 
 #define SNOOZE_NOTIFICATION_KEY @"SNOOZE_NOTIFICATION_KEY"
@@ -30,18 +31,24 @@ static SnoozeLocalNotificationCenter *_sharedManager = nil;
 - (void)schedule:(UILocalNotification *) localNotification snoozeMinutes:(NSArray *) snoozeMinutes {
     NSAssert(snoozeMinutes != nil, @"You have to pass snoozeMinutes.");
     NSDate *baseFireDate = [localNotification.fireDate copy];
+    localNotification.userInfo = [self map:baseFireDate notification:localNotification];
+    [self p_scheduleLocalNotification:localNotification];
     [snoozeMinutes enumerateObjectsUsingBlock:^(NSNumber *minutesObject, NSUInteger idx, BOOL *stop) {
         UILocalNotification *notification = [localNotification copy];
         NSDate *fireDate = [baseFireDate dateByAddingTimeInterval:(SECONDS_IN_MINUTE * [minutesObject floatValue])];
         notification.fireDate = fireDate;
-        NSMutableDictionary *userInfo = [notification.userInfo mutableCopy];
-        if (!userInfo) {
-            userInfo = [NSMutableDictionary dictionary];
-        }
-        [userInfo setObject:baseFireDate forKey:SNOOZE_NOTIFICATION_KEY];
-        notification.userInfo = userInfo;
+        notification.userInfo = [self map:baseFireDate notification:notification];
         [self p_scheduleLocalNotification:notification];
     }];
+}
+
+- (NSMutableDictionary *)map:(NSDate *) baseFireDate notification:(UILocalNotification *) notification {
+    NSMutableDictionary *userInfo = [notification.userInfo mutableCopy];
+    if (!userInfo) {
+        userInfo = [NSMutableDictionary dictionary];
+    }
+    [userInfo setObject:@([baseFireDate timeIntervalSince1970]) forKey:SNOOZE_NOTIFICATION_KEY];
+    return userInfo;
 }
 
 - (void)p_scheduleLocalNotification:(UILocalNotification *) localNotification {
@@ -60,9 +67,10 @@ static SnoozeLocalNotificationCenter *_sharedManager = nil;
 - (void)cancelSnoozeForNotification:(UILocalNotification *) aNotification {
     NSArray *scheduledLocalNotifications = [[UIApplication sharedApplication] scheduledLocalNotifications];
     [scheduledLocalNotifications enumerateObjectsUsingBlock:^(UILocalNotification *notification, NSUInteger idx, BOOL *stop) {
-        if ([notification.userInfo[SNOOZE_NOTIFICATION_KEY] isEqual:aNotification.userInfo[SNOOZE_NOTIFICATION_KEY]]) {
-            [[UIApplication sharedApplication] cancelLocalNotification:aNotification];
+        if ([notification.userInfo[SNOOZE_NOTIFICATION_KEY] isEqualToNumber:aNotification.userInfo[SNOOZE_NOTIFICATION_KEY]]) {
+            [[UIApplication sharedApplication] cancelLocalNotification:notification];
         }
     }];
+    [[UIApplication sharedApplication] cancelLocalNotification:aNotification];
 }
 @end
