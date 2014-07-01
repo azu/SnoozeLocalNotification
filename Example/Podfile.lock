@@ -19,6 +19,6 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   FBSnapshotTestCase: 9053afee1d66b4c7c313fcb0ae582a5e47bea9d0
   Kiwi: c73667f2b84cbf36f1a3830267c5a4ae8dcbd8ba
-  SnoozeLocalNotification: 3f2082c23b8f274c8141139e7701f3785f40e6cb
+  SnoozeLocalNotification: dbe27e6c8a4905d9107773a9d628b6b3c24c7d38
 
 COCOAPODS: 0.33.1

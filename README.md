@@ -5,6 +5,8 @@
 [![License](https://img.shields.io/cocoapods/l/SnoozeLocalNotification.svg?style=flat)](http://cocoadocs.org/docsets/SnoozeLocalNotification)
 [![Platform](https://img.shields.io/cocoapods/p/SnoozeLocalNotification.svg?style=flat)](http://cocoadocs.org/docsets/SnoozeLocalNotification)
 
+Snooze UILocalNotification library.
+
 ## Installation
 
 SnoozeLocalNotification is available through [CocoaPods](http://cocoapods.org). To install

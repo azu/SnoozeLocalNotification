@@ -97,4 +97,35 @@ SPEC_BEGIN(SnoozeLocalNotificationCenterSpec)
             });
         });
     });
+    describe(@"-cancelUnnecessarySnooze", ^{
+        context(@"When primary notification is not notified yet", ^{
+            NSArray *snoozeMinutes = @[@10, @30, @60];
+            __block UILocalNotification *localNotification;
+            beforeEach(^{
+                localNotification = [[UILocalNotification alloc] init];
+                localNotification.fireDate = [[NSDate date] dateByAddingTimeInterval:1000];
+                localNotification.alertBody = @"message";
+                [[SnoozeLocalNotificationCenter center] schedule:localNotification snoozeMinutes:snoozeMinutes];
+            });
+            it(@"should not cancel snooze notification", ^{
+                [[SnoozeLocalNotificationCenter center] cancelUnnecessarySnooze];
+                [[[SnoozeHelper scheduled] should] haveCountOf:(snoozeMinutes.count + 1)];
+            });
+        });
+        context(@"When primary notification already notified", ^{
+            NSArray *snoozeMinutes = @[@10, @30, @60];
+            __block UILocalNotification *localNotification;
+            beforeEach(^{
+                localNotification = [[UILocalNotification alloc] init];
+                // already notified
+                localNotification.fireDate = [[NSDate date] dateByAddingTimeInterval:0];
+                localNotification.alertBody = @"message";
+                [[SnoozeLocalNotificationCenter center] schedule:localNotification snoozeMinutes:snoozeMinutes];
+            });
+            it(@"should not cancel snooze notification", ^{
+                [[SnoozeLocalNotificationCenter center] cancelUnnecessarySnooze];
+                [[[SnoozeHelper scheduled] should] haveCountOf:0];
+            });
+        });
+    });
 SPEC_END
