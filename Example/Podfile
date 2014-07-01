@@ -1,0 +1,10 @@
+target 'SnoozeLocalNotification', :exclusive => true do
+  pod "SnoozeLocalNotification", :path => "../"
+end
+
+target 'Tests', :exclusive => true do
+  pod "SnoozeLocalNotification", :path => "../"
+
+  pod 'Kiwi/XCTest'
+  pod 'FBSnapshotTestCase'
+end
