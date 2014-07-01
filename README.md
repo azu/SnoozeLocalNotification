@@ -17,6 +17,8 @@ it, simply add the following line to your Podfile:
 
 ## Usage
 
+You should put some code in `AppDelegate`.
+
 ``` objc
 - (BOOL)application:(UIApplication *) application didFinishLaunchingWithOptions:(NSDictionary *) launchOptions {
     UILocalNotification *localNotif = [launchOptions objectForKey:UIApplicationLaunchOptionsRemoteNotificationKey];
@@ -27,6 +29,18 @@ it, simply add the following line to your Podfile:
 - (void)applicationWillEnterForeground:(UIApplication *) application {
     [[SnoozeLocalNotificationCenter center] cancelUnnecessarySnooze];
 }
+```
+
+and schedule `UILocalNotification` and snooze.
+
+```objc
+// Schedule 4 notification.
+// fireDate -> 10min -> 30min -> 60min
+NSArray *snoozeMinutes = @[@10, @30, @60];
+UILocalNotification *localNotification = [[UILocalNotification alloc] init];
+localNotification.fireDate = [[NSDate date] dateByAddingTimeInterval:1000];
+localNotification.alertBody = @"message";
+[[SnoozeLocalNotificationCenter center] schedule:otherNotification snoozeMinutes:snoozeMinutes];
 ```
 
 ## API

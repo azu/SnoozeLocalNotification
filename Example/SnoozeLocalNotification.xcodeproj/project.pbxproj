@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		108D464C2C5742BD8D454ADE /* libPods-SnoozeLocalNotification.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E20E227758DC469B88031345 /* libPods-SnoozeLocalNotification.a */; };
-		17B5C66A05AD31B99F078A68 /* SnoozeLocalNotificationSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 17B5CC27203B43E979AE7958 /* SnoozeLocalNotificationSpec.m */; };
 		17B5CB1B449D251437EC8252 /* SnoozeLocalNotificationCenterSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 17B5C1E818EF23792FD11828 /* SnoozeLocalNotificationCenterSpec.m */; };
 		5CF22C2228C347ADB1C62B36 /* libPods-Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D9F1D2C9BDBB46D39DD22F68 /* libPods-Tests.a */; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
@@ -39,7 +38,6 @@
 
 /* Begin PBXFileReference section */
 		17B5C1E818EF23792FD11828 /* SnoozeLocalNotificationCenterSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SnoozeLocalNotificationCenterSpec.m; sourceTree = "<group>"; };
-		17B5CC27203B43E979AE7958 /* SnoozeLocalNotificationSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SnoozeLocalNotificationSpec.m; sourceTree = "<group>"; };
 		6003F58A195388D20070C39A /* SnoozeLocalNotification.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SnoozeLocalNotification.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58D195388D20070C39A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6003F58F195388D20070C39A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -159,7 +157,6 @@
 			isa = PBXGroup;
 			children = (
 				6003F5B6195388D20070C39A /* Supporting Files */,
-				17B5CC27203B43E979AE7958 /* SnoozeLocalNotificationSpec.m */,
 				17B5C1E818EF23792FD11828 /* SnoozeLocalNotificationCenterSpec.m */,
 			);
 			path = Tests;
@@ -360,7 +357,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				17B5C66A05AD31B99F078A68 /* SnoozeLocalNotificationSpec.m in Sources */,
 				17B5CB1B449D251437EC8252 /* SnoozeLocalNotificationCenterSpec.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
