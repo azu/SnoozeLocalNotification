@@ -48,7 +48,7 @@ localNotification.alertBody = @"message";
 ```objc
 @interface SnoozeLocalNotificationCenter : NSObject
 + (instancetype)center;
-// register notification and snooze
+// schedule notification and snooze
 - (void)schedule:(UILocalNotification *) snoozeLocalNotification snoozeMinutes:(NSArray *) snoozeMinutes;
 
 // cancel all snooze notifications
@@ -59,7 +59,9 @@ localNotification.alertBody = @"message";
  * snoozeX and snoozeY are unnecessary notifications.
  */
 - (void)cancelUnnecessarySnooze;
-
+// cancel notification and snooze
+- (void)cancelSnoozeForNotification:(UILocalNotification *) aNotification;
+@end
 - (void)cancelSnoozeForNotification:(UILocalNotification *) aNotification;
 @end
 ```

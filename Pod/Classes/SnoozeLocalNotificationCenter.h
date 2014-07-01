@@ -7,7 +7,7 @@
 
 @interface SnoozeLocalNotificationCenter : NSObject
 + (instancetype)center;
-// register notification and snooze
+// schedule notification and snooze
 - (void)schedule:(UILocalNotification *) snoozeLocalNotification snoozeMinutes:(NSArray *) snoozeMinutes;
 
 // cancel all snooze notifications
