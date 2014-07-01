@@ -40,7 +40,7 @@ NSArray *snoozeMinutes = @[@10, @30, @60];
 UILocalNotification *localNotification = [[UILocalNotification alloc] init];
 localNotification.fireDate = [[NSDate date] dateByAddingTimeInterval:1000];
 localNotification.alertBody = @"message";
-[[SnoozeLocalNotificationCenter center] schedule:otherNotification snoozeMinutes:snoozeMinutes];
+[[SnoozeLocalNotificationCenter center] schedule:localNotification snoozeMinutes:snoozeMinutes];
 ```
 
 ## API
