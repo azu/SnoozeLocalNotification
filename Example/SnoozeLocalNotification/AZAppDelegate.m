@@ -12,8 +12,8 @@
 @implementation AZAppDelegate
 
 - (BOOL)application:(UIApplication *) application didFinishLaunchingWithOptions:(NSDictionary *) launchOptions {
-    UILocalNotification *localNotif = [launchOptions objectForKey:UIApplicationLaunchOptionsRemoteNotificationKey];
-    [[SnoozeLocalNotificationCenter center] cancelSnoozeForNotification:localNotif];
+    UILocalNotification *notification = [launchOptions objectForKey:UIApplicationLaunchOptionsRemoteNotificationKey];
+    [[SnoozeLocalNotificationCenter center] cancelSnoozeForNotification:notification];
     return YES;
 }
 
@@ -23,8 +23,20 @@
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *) application {
-    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
-    // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+    [self log];
+}
+
+- (void)log {
+    for (UILocalNotification *notification in [[UIApplication sharedApplication] scheduledLocalNotifications]) {
+        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+        dateFormatter.calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+        dateFormatter.locale = [NSLocale currentLocale];
+        [dateFormatter setDateFormat:@"yyyy/MM/dd HH:mm:ss"];
+        NSLog(@"Notifications : %@ '%@'",
+            [dateFormatter stringFromDate:notification.fireDate],
+            notification.alertBody
+             );
+    }
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *) application {
@@ -37,6 +49,19 @@
 
 - (void)applicationWillTerminate:(UIApplication *) application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+- (void)application:(UIApplication *) application didReceiveLocalNotification:(UILocalNotification *) notification {
+    if (notification) {
+        UIAlertView *alert = [[UIAlertView alloc]
+            initWithTitle:@"Info"
+            message:@"alarm"
+            delegate:self
+            cancelButtonTitle:@"OK"
+            otherButtonTitles:nil];
+        [alert show];
+        [self log];
+    }
 }
 
 @end
