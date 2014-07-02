@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name        = "SnoozeLocalNotification"
-  s.version     = "0.1.0"
+  s.version     = "0.1.1"
   s.summary     = "Snooze UILocalNotification library - repeat local notification."
   s.homepage     = "https://github.com/azu/SnoozeLocalNotification"
   s.license      = 'MIT'
