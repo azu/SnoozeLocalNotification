@@ -62,8 +62,6 @@ localNotification.alertBody = @"message";
 // cancel notification and snooze
 - (void)cancelSnoozeForNotification:(UILocalNotification *) aNotification;
 @end
-- (void)cancelSnoozeForNotification:(UILocalNotification *) aNotification;
-@end
 ```
 
 ## License
