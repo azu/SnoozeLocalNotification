@@ -7,7 +7,11 @@
 
 @interface SnoozeLocalNotificationCenter : NSObject
 + (instancetype)center;
+
 // schedule notification and snooze
+// NSDateComponents List
+- (void)schedule:(UILocalNotification *) localNotification snoozeDateComponents:(NSArray *) dateComponentsList;
+
 - (void)schedule:(UILocalNotification *) localNotification snoozeMinutes:(NSArray *) snoozeMinutes;
 
 // cancel all snooze notifications
@@ -18,6 +22,7 @@
  * snoozeX and snoozeY are unnecessary notifications.
  */
 - (void)cancelUnnecessarySnooze;
+
 // cancel notification and snooze
 - (void)cancelSnoozeForNotification:(UILocalNotification *) aNotification;
 @end

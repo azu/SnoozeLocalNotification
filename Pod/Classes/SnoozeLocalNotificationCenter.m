@@ -28,13 +28,14 @@ static SnoozeLocalNotificationCenter *_sharedManager = nil;
     return self;
 }
 
-- (void)schedule:(UILocalNotification *) localNotification snoozeMinutes:(NSArray *) snoozeMinutes {
-    NSAssert(snoozeMinutes != nil, @"You have to pass snoozeMinutes.");
+- (void)schedule:(UILocalNotification *) localNotification snoozeDateComponents:(NSArray *) dateComponentsList {
+    NSAssert(dateComponentsList != nil, @"You have to pass snoozeMinutes.");
     NSUUID *uuid = [NSUUID UUID];
     NSDate *baseFireDate = [localNotification.fireDate copy];
-    [snoozeMinutes enumerateObjectsUsingBlock:^(NSNumber *minutesObject, NSUInteger idx, BOOL *stop) {
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    [dateComponentsList enumerateObjectsUsingBlock:^(NSDateComponents *dateComponent, NSUInteger idx, BOOL *stop) {
         UILocalNotification *notification = [localNotification copy];
-        NSDate *fireDate = [baseFireDate dateByAddingTimeInterval:(SECONDS_IN_MINUTE * [minutesObject floatValue])];
+        NSDate *fireDate = [calendar dateByAddingComponents:dateComponent toDate:baseFireDate options:0];
         notification.fireDate = fireDate;
         notification.userInfo = [self map:uuid.UUIDString notification:notification];
         [self p_scheduleLocalNotification:notification];
@@ -44,6 +45,16 @@ static SnoozeLocalNotificationCenter *_sharedManager = nil;
     [mutableDictionary setObject:uuid.UUIDString forKey:@"SNOOZE_NOTIFICATION_PRIMARY_KEY"];
     localNotification.userInfo = mutableDictionary;
     [self p_scheduleLocalNotification:localNotification];
+}
+- (void)schedule:(UILocalNotification *) localNotification snoozeMinutes:(NSArray *) snoozeMinutes {
+    NSAssert(snoozeMinutes != nil, @"You have to pass snoozeMinutes.");
+    NSMutableArray *dateComponentsList = [NSMutableArray array];
+    [snoozeMinutes enumerateObjectsUsingBlock:^(NSNumber * minute, NSUInteger idx, BOOL *stop) {
+        NSDateComponents *dateComponents = [[NSDateComponents alloc] init];
+        dateComponents.minute = [minute integerValue];
+        [dateComponentsList addObject:dateComponents];
+    }];
+    [self schedule:localNotification snoozeDateComponents:dateComponentsList];
 }
 
 - (NSMutableDictionary *)map:(id) uuid notification:(UILocalNotification *) notification {
