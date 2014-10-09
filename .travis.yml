@@ -1,5 +1,4 @@
-reference: http://www.objc.io/issue-6/travis-ci.html
 language: objective-c
-cache: bundler
+before_install: cd Example && pod install && cd -
 script:
 - xctool test -workspace Example/SnoozeLocalNotification.xcworkspace -scheme SnoozeLocalNotification -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO
