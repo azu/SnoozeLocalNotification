@@ -1,3 +1,4 @@
+source 'https://github.com/CocoaPods/Specs.git'
 target 'SnoozeLocalNotification', :exclusive => true do
   pod "SnoozeLocalNotification", :path => "../"
 end
@@ -5,6 +6,5 @@ end
 target 'Tests', :exclusive => true do
   pod "SnoozeLocalNotification", :path => "../"
 
-  pod 'Kiwi/XCTest'
-  pod 'FBSnapshotTestCase'
+  pod 'Kiwi'
 end

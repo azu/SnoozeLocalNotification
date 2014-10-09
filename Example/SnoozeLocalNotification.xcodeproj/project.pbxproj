@@ -37,7 +37,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		154A8FB3B9E2C7E5533126CF /* Pods-SnoozeLocalNotification.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SnoozeLocalNotification.release.xcconfig"; path = "Pods/Target Support Files/Pods-SnoozeLocalNotification/Pods-SnoozeLocalNotification.release.xcconfig"; sourceTree = "<group>"; };
 		17B5C1E818EF23792FD11828 /* SnoozeLocalNotificationCenterSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SnoozeLocalNotificationCenterSpec.m; sourceTree = "<group>"; };
+		2119863C759F9AC1DBE0B460 /* Pods-Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Tests/Pods-Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		6003F58A195388D20070C39A /* SnoozeLocalNotification.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SnoozeLocalNotification.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58D195388D20070C39A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6003F58F195388D20070C39A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -58,8 +60,8 @@
 		6003F5B7195388D20070C39A /* Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Tests-Info.plist"; sourceTree = "<group>"; };
 		6003F5B9195388D20070C39A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		606FC2411953D9B200FFA9A0 /* Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tests-Prefix.pch"; sourceTree = "<group>"; };
-		99DB2E25289148B481C49F99 /* Pods-SnoozeLocalNotification.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SnoozeLocalNotification.xcconfig"; path = "Pods/Pods-SnoozeLocalNotification.xcconfig"; sourceTree = "<group>"; };
-		9B4CB856A794477C81E4A6D1 /* Pods-Tests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tests.xcconfig"; path = "Pods/Pods-Tests.xcconfig"; sourceTree = "<group>"; };
+		97472A03893FF378045E176E /* Pods-SnoozeLocalNotification.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SnoozeLocalNotification.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SnoozeLocalNotification/Pods-SnoozeLocalNotification.debug.xcconfig"; sourceTree = "<group>"; };
+		A3CC64AA4DEAF76C5C1BBA5F /* Pods-Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Tests/Pods-Tests.release.xcconfig"; sourceTree = "<group>"; };
 		B0C51EC9D9444152B249062B /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		D9F1D2C9BDBB46D39DD22F68 /* libPods-Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF73F97AFF734C088FAFD014 /* SnoozeLocalNotification.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = SnoozeLocalNotification.podspec; path = ../SnoozeLocalNotification.podspec; sourceTree = "<group>"; };
@@ -100,8 +102,7 @@
 				6003F5B5195388D20070C39A /* Tests */,
 				6003F58C195388D20070C39A /* Frameworks */,
 				6003F58B195388D20070C39A /* Products */,
-				99DB2E25289148B481C49F99 /* Pods-SnoozeLocalNotification.xcconfig */,
-				9B4CB856A794477C81E4A6D1 /* Pods-Tests.xcconfig */,
+				D706354E92EF4C7C6F4ACE01 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -179,6 +180,17 @@
 				B0C51EC9D9444152B249062B /* LICENSE */,
 			);
 			name = "Podspec Metadata";
+			sourceTree = "<group>";
+		};
+		D706354E92EF4C7C6F4ACE01 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				97472A03893FF378045E176E /* Pods-SnoozeLocalNotification.debug.xcconfig */,
+				154A8FB3B9E2C7E5533126CF /* Pods-SnoozeLocalNotification.release.xcconfig */,
+				2119863C759F9AC1DBE0B460 /* Pods-Tests.debug.xcconfig */,
+				A3CC64AA4DEAF76C5C1BBA5F /* Pods-Tests.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -307,7 +319,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Pods-SnoozeLocalNotification-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SnoozeLocalNotification/Pods-SnoozeLocalNotification-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		D9EA9D6753824682A5115A66 /* Check Pods Manifest.lock */ = {
@@ -337,7 +349,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Pods-Tests-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Tests/Pods-Tests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -481,7 +493,7 @@
 		};
 		6003F5C0195388D20070C39A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 99DB2E25289148B481C49F99 /* Pods-SnoozeLocalNotification.xcconfig */;
+			baseConfigurationReference = 97472A03893FF378045E176E /* Pods-SnoozeLocalNotification.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -496,7 +508,7 @@
 		};
 		6003F5C1195388D20070C39A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 99DB2E25289148B481C49F99 /* Pods-SnoozeLocalNotification.xcconfig */;
+			baseConfigurationReference = 154A8FB3B9E2C7E5533126CF /* Pods-SnoozeLocalNotification.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -511,7 +523,7 @@
 		};
 		6003F5C3195388D20070C39A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9B4CB856A794477C81E4A6D1 /* Pods-Tests.xcconfig */;
+			baseConfigurationReference = 2119863C759F9AC1DBE0B460 /* Pods-Tests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/SnoozeLocalNotification.app/SnoozeLocalNotification";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -534,7 +546,7 @@
 		};
 		6003F5C4195388D20070C39A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9B4CB856A794477C81E4A6D1 /* Pods-Tests.xcconfig */;
+			baseConfigurationReference = A3CC64AA4DEAF76C5C1BBA5F /* Pods-Tests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/SnoozeLocalNotification.app/SnoozeLocalNotification";
 				FRAMEWORK_SEARCH_PATHS = (
